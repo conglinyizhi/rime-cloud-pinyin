@@ -9,7 +9,7 @@ Docs also available in other languages: [简体中文](README-zh.md) | [English]
 - Multiple engine support: Built-in cloud APIs for Sogou, Baidu, and Google input methods, freely switchable
 - Shuangpin friendly: Natively supports Xiaohe, Ziranmao, Microsoft, and Sogou Shuangpin, with automatic conversion to full pinyin for querying
 - Smart memorization: When a cloud pinyin candidate is selected, it is automatically recorded in the user dictionary and prioritized next time
-- Custom API: Supports integrating self-hosted pinyin services to meet个性化 needs
+- Custom API: Supports integrating self-hosted pinyin services to meet personalized needs
 - Lightweight and efficient: Written in Rust, excellent performance, does not slow down typing
 
 ## Quick Start
@@ -28,27 +28,7 @@ After building, place `target/release/cloud_pinyin` into a directory in your sys
 
 1. Copy all `.lua` files from the `scripts/` directory to the `lua/` folder in your Rime user directory
 
-2. Edit your `rime.lua` file and add the following configuration:
-
-```lua
--- Import the cloud pinyin module
-local cloud_pinyin_cli = require("cloud_pinyin_cli")
-
--- Configure engine (options: sougou, baidu, google, custom)
-cloud_pinyin_cli.config.engine = "sougou"
-
--- Shuangpin schema (options: flypy, zrm, mspy, sogou; leave empty to disable conversion)
-cloud_pinyin_cli.config.shuangpin_schema = "flypy"
-
--- Enable user dictionary recording
-cloud_pinyin_cli.config.user_dict = true
-
--- Register with Rime
-cloud_pinyin_translator = cloud_pinyin_cli.translator
-cloud_pinyin_processor = cloud_pinyin_cli.processor
-```
-
-3. In your input method schema (e.g., `luna_pinyin.schema.yaml`), add:
+2. In your input method schema (e.g., `luna_pinyin.schema.yaml`), add:
 
 ```yaml
 engine:
@@ -58,7 +38,7 @@ engine:
     - lua_processor@cloud_pinyin_processor
 ```
 
-4. Redeploy the Rime engine
+3. Redeploy the Rime engine
 
 ## Advanced Usage
 

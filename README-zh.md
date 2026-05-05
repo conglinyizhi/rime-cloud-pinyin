@@ -28,27 +28,7 @@ cargo build --release
 
 1. 将 `scripts/` 目录下的所有 `.lua` 文件复制到 Rime 用户目录的 `lua/` 文件夹中
 
-2. 编辑你的 `rime.lua` 文件，添加以下配置：
-
-```lua
--- 引入云拼音模块
-local cloud_pinyin_cli = require("cloud_pinyin_cli")
-
--- 配置引擎（可选：sougou, baidu, google, custom）
-cloud_pinyin_cli.config.engine = "sougou"
-
--- 双拼方案（可选：flypy, zrm, mspy, sogou，留空则不转换）
-cloud_pinyin_cli.config.shuangpin_schema = "flypy"
-
--- 开启用户词库记录
-cloud_pinyin_cli.config.user_dict = true
-
--- 注册到 Rime
-cloud_pinyin_translator = cloud_pinyin_cli.translator
-cloud_pinyin_processor = cloud_pinyin_cli.processor
-```
-
-3. 在你的输入法方案（如 `luna_pinyin.schema.yaml`）中添加：
+2. 在你的输入法方案（如 `luna_pinyin.schema.yaml`）中添加：
 
 ```yaml
 engine:
@@ -58,7 +38,7 @@ engine:
     - lua_processor@cloud_pinyin_processor
 ```
 
-4. 重新部署 Rime 引擎
+3. 重新部署 Rime 引擎
 
 ## 进阶用法
 
